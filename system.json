@@ -40,6 +40,6 @@
     "secondaryTokenAttribute": "resources.power",
     "url": "",
     "background": "",
-    "manifest": "https://raw.githubusercontent.com/EddieFromMc/Essence_User/main/Essence_User/system.json",
+    "manifest": "https://raw.githubusercontent.com/EddieFromMc/Essence_User/main/system.json",
     "download": "https://github.com/EddieFromMc/Essence_User/archive/refs/heads/main.zip"
   }
