@@ -25,21 +25,7 @@
     "packs": [
       
     ],
-  "languages": [
-      {
-        "lang": "en",
-        "name": "English",
-        "path": "lang/en.json"
-      }
-    ],
-    "socket": false,
     "initiative": "1d10",
     "gridDistance": 5,
-    "gridUnits": "m",
-    "primaryTokenAttribute": "resources.health",
-    "secondaryTokenAttribute": "resources.power",
-    "url": "",
-    "background": "",
-    "manifest": "",
-    "download": ""
+    "gridUnits": "m"
   }
