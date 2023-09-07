@@ -33,7 +33,7 @@
       }
     ],
     "socket": false,
-    "initiative": "1d10",
+    "initiative": "1d10+@spirit.value",
     "gridDistance": 5,
     "gridUnits": "m",
     "primaryTokenAttribute": "resources.health",
