@@ -2,7 +2,7 @@
     "id": "Essence_User",
     "title": "Essence User",
     "description": "Essence Users from Chaos Incarnated",
-    "version": "2.0.0",
+    "version": "0.0.1",
     "compatibility": {
       "minimum": "10",
       "verified": "11",
