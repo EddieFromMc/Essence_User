@@ -1,0 +1,62 @@
+{
+    "Actor": {
+      "types": ["character", "monster"],
+      "templates": {
+        "base": {
+          "health": {
+            "value": 10,
+            "min": 0,
+            "max": 10
+          },
+          "abilities": {
+            "power": {
+              "value": 0
+            },
+            "speed": {
+              "value": 0
+            },
+            "spirit": {
+              "value": 0
+            },
+            "recovery": {
+              "value": 0
+            }
+          },
+          "biography": ""
+        }
+      },
+      "character": {
+        "templates": ["base"],
+        "attributes": {
+          "level": {
+            "value": 1
+          }
+        }
+      },
+      "monster": {
+        "templates": ["base"],
+        "cr": 0
+      }
+    },
+    "Item": {
+      "types": ["item", "feature", "spell"],
+      "templates": {
+        "base": {
+          "description": ""
+        }
+      },
+      "item": {
+        "templates": ["base"],
+        "quantity": 1,
+        "weight": 0,
+        "formula": "d20 + @str.mod + ceil(@lvl / 2)"
+      },
+      "feature": {
+        "templates": ["base"]
+      },
+      "spell": {
+        "templates": ["base"],
+        "spellLevel": 1
+      }
+    }
+  }
