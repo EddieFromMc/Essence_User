@@ -29,6 +29,8 @@ export class EssenceUserActor extends Actor {
       for(let i = 0;i<abilites.length;i++) {
         //quickly checks amount of capped abilities, for use in equations later
         var Capped = 0;
+	//Ignore for loop if capped is already 3 or higher
+	if(Capped<3){
         for(let z = 0;z<abilites.length;z++) {
           //Totals capped abilities
           if(abilities[i].capped==1){Capped++;}
@@ -36,6 +38,7 @@ export class EssenceUserActor extends Actor {
           if(Capped>3 || Capped==3){
             Capped=3;
             break;}
+	}
         }
         //ability type input for array use later
         var type = 0;
@@ -48,7 +51,7 @@ export class EssenceUserActor extends Actor {
         //preference uses of abilities for quick use later(Probably not needed, but makes it more readable)
         var totalUses=Math.floor(abilites[i].tu);
         //variable for looping through the level of ability
-        var level = 0;
+        var level = 1;
         // While loop, goes through and levels up abilities, while total uses are greater than or equal to the requirement for the next tier
         while(totalUses==uses[type][level-1] || totalUses>uses[type][level-1]){
           //breaks the while loop if the level gets too high.
