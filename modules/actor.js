@@ -70,14 +70,15 @@ export class EssenceUserActor extends Actor {
             abilities[i].next="(Capped)";
             abilities[i].value++;
             abilities[i].capped=1;
-        }
+          }
         //Sets capped to null if next does not equal (Capped)
  	if(abilities[i].mext=="(Capped)"){abilities[i].capped=0}
-      }
+        }
 	      
         //sets abilities with 0 or "" use to tier 1
         if((Math.floor(abilites[i].tu)==0 || Math.floor(abilites[i].tu)=="") && abilites[i].type!=""){abilites[i].value=1;}
         //End For Loop & Character check
+      }
     }
   
     //Grab stats as array=
