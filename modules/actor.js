@@ -30,15 +30,14 @@ export class EssenceUserActor extends Actor {
         //quickly checks amount of capped abilities, for use in equations later
         var Capped = 0;
 	//Ignore for loop if capped is already 3 or higher
-	if(Capped<3){
         for(let z = 0;z<abilites.length;z++) {
-          //Totals capped abilities
-          if(abilities[i].capped==1){Capped++;}
           //breaks if capped abilities are greater than or equal to 3, and sets it to 3
-          if(Capped>3 || Capped==3){
+	  if(Capped>3 || Capped==3){
             Capped=3;
-            break;}
-	}
+            break;
+	  }
+          //Totals capped abilities
+          if(abilities[i].capped==1) { Capped++; }
         }
         //ability type input for array use later
         var type = 0;
