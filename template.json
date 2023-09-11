@@ -22,7 +22,7 @@
             "mana" : { "value" : 0, "mult" : 0, "mod" : 0},
             "stamina" : { "value" : 0, "mult" : 0, "mod" : 0},
             "health" : { "value" : 0, "mult" : 0, "mod" : 0}
-          }
+          },
           "movespeed" : {
              "value" : 0,
              "mult" : 0,
@@ -75,7 +75,7 @@
             "ability17" : { "value": 0, "tu" : 0, "type": "", "capped": 0, "cost": "", "category": "" },
             "ability18" : { "value": 0, "tu" : 0, "type": "", "capped": 0, "cost": "", "category": "" },
             "ability19" : { "value": 0, "tu" : 0, "type": "", "capped": 0, "cost": "", "category": "" },
-            "ability20" : { "value": 0, "tu" : 0, "type": "", "capped": 0, "cost": "", "category": "" },
+            "ability20" : { "value": 0, "tu" : 0, "type": "", "capped": 0, "cost": "", "category": "" }
         }
       },
       "monster": {
