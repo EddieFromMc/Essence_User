@@ -1,8 +1,8 @@
 /**
- * Extend the base Actor document by defining a custom roll data structure which is ideal for the Simple system.
- * @extends {Actor}
+ * Extend the base data.actor document by defining a custom roll data structure which is ideal for the Simple system.
+ * @extends {data.actor}
  */
-export class EssenceUserActor extends Actor {
+export class EssenceUserdata.actor extends data.actor {
 
   /** @override */
   prepareData() {
@@ -16,15 +16,15 @@ export class EssenceUserActor extends Actor {
     // Check we are actually using a character sheet, ignore otherwise | Gonna go comment-heavy to help Dan and Beef, remove comments if you wish
     if (this.type==="character") {
       // Tables listing uses required to reach the next tier
-      const usesActive = [1,2,3,4,5,6,7,8,9,10,11];
+      const usesdata.active = [1,2,3,4,5,6,7,8,9,10,11];
       const usesPassive = [1,1,1,1,1,2,2,2,2,5];
-      const scumUsesActive = [1,2,3,3,4,5,6,6,7,9];
+      const scumUsesdata.active = [1,2,3,3,4,5,6,6,7,9];
       const scumUsesPassive = [1,1,1,1,1,2,2,2,2,4];
       const special = [1,1,1,1,1,1,1,1,1,1,0];
-      // Transform 1D array above into 2D Array for ease of use later
-      const uses = [usesActive,usesPassive,scumUsesActive,scumUsesPassive,special];
-      // Array for 20 Abilities, [Note! The template wasn't uploaded, so to be filled in, pseudocode for now]
-      const abilities = [Ability1,Ability2,Ability2,Ability3,Ability4,Ability5,Ability6,Ability7,Ability8,Ability9,Ability10,Ability11,Ability12,Ability13,Ability14,Ability15,Ability16,Ability17,Ability18,Ability19,Ability20];
+      // Transform 1D array above into 2D data.array for ease of use later
+      const uses = [usesdata.active,usesPassive,scumUsesdata.active,scumUsesPassive,special];
+      // data.array for 20 data.abilities, [Note! The template wasn't uploaded, so to be filled in, pseudocode for now]
+      const abilities = [data.ability1,data.ability2,data.ability2,data.ability3,data.ability4,data.ability5,data.ability6,data.ability7,data.ability8,data.ability9,data.ability10,data.ability11,data.ability12,data.ability13,data.ability14,data.ability15,data.ability16,data.ability17,data.ability18,data.ability19,data.ability20];
       //For loop, to loop through all 20 abilities, i represent the ability number here
       for(let i = 0;i<abilites.length;i++) {
         //quickly checks amount of capped abilities, for use in equations later
@@ -44,9 +44,9 @@ export class EssenceUserActor extends Actor {
         //ability type input for array use later
         var type = 0;
         //Check type of ability, through convoluted if statements (Can use some work)
-        if(abilities[i].type=="Active" ||  abilities[i].type=="Reactive"){type=0;
+        if(abilities[i].type=="data.active" ||  abilities[i].type=="Reactive"){type=0;
         }else if(abilities[i].type=="Passive"){type=1;
-        }else if(abilities[i].type=="!Active" || abilities[i].type=="!Reactive" ){type=2;
+        }else if(abilities[i].type=="!data.active" || abilities[i].type=="!Reactive" ){type=2;
         }else if(abilities[i].type=="!Passive"){type=3;     
         }else{type=4;}
 	      
@@ -59,7 +59,7 @@ export class EssenceUserActor extends Actor {
         while(totalUses==uses[type][level-1] || totalUses>uses[type][level-1]){
           //breaks the while loop if the level gets too high.
           if(level>9){break;}
-          //if Capped is greater than 0 and level equals 9(Ability tier 10) gives bonus uses from capped.
+          //if Capped is greater than 0 and level equals 9(data.ability tier 10) gives bonus uses from capped.
           if(Capped>0 && level==9){total uses+=Capped;}
           //subtract the tier-up cost from totalUses, 
           totalUses-=uses[t][x-1]
@@ -88,7 +88,7 @@ export class EssenceUserActor extends Actor {
     data.rank.max = Math.ceil(data.rank.value/10);
     //Force update from Unranked to Iron.
     if((data.rank.value*4)>3 && (data.rank.value*4)<16 ){data.rank.max=1}
-    //Array of Names corresponding to rank
+    //data.array of Names corresponding to rank
     const ranks = ["Unranked","Iron","Bronze","Silver","Gold","Diamond"];
     //variable to track if stats reached peak, and if statement to check for that
     var peakTest = false; 
@@ -118,14 +118,16 @@ export class EssenceUserActor extends Actor {
     }
     //Health Calc, Not breaking any of the below down, do it yourself xD
     data.health.max=Math.floor(((Math.floor(Number(data.spirit.value))*(3+Number(data.rank.max)))+Number(10)+Number(temp)+Number(data.rank.max)*Number(10)+(Math.floor(Number(data.recovery.value))*(6+Number(data.rank.max)))+data.health.mod)*data.health.mult)
-    //Low AC Calc
-    data.ac.value=5+Math.floor(data.power.value)+data.ac.modl;
-    //High AC Calc
-    data.ac.max=15+Math.floor(data.power.value)+Math.floor(data.speed.value)-9*data.rank.max+data.ac.modh;
+    //Low data.aC Calc
+    data.ac.value=5+Math.floor(data.power.value)+data.ac.low_mod;
+    //High data.aC Calc
+    data.ac.max=15+Math.floor(data.power.value)+Math.floor(data.speed.value)-9*data.rank.max+data.ac.high_mod;
     //Movespeed Calc
     data.movespeed.value=(Math.floor(data.speed.value/5)*Math.min((10+5*Math.floor((data.skills.acrobatics/data.rank.max)/2)),20)+data.movespeed.mod)*data.movespeed.mult
     //Movespeed override for 0 Speed
     if(data.movespeed.value==0){data.movespeed.value=(5+data.movespeed.mod)*data.movespeed.mult}
+	///Set movespeed to min if less.
+	if(data.movespeed.min>data.movespeed.value){data.movespeed.value=data.movespeed.min;}
     //Mana recovery Calc
     data.recovery.mana.value=Math.round(((0.1+data.rank.max/20)*Math.floor(data.recovery.value)+data.recovery.mana.mod)*data.recovery.mana.mult*100)/100
     //Stamina recovery Calc
@@ -142,7 +144,7 @@ export class EssenceUserActor extends Actor {
 
   /**
    * @override
-   * Augment the basic actor data with additional dynamic data. Typically,
+   * data.augment the basic actor data with additional dynamic data. Typically,
    * you'll want to handle most of your calculated/derived data in this step.
    * Data calculated in this step should generally not exist in template.json
    * (such as ability modifiers rather than ability scores) and should be
@@ -154,7 +156,7 @@ export class EssenceUserActor extends Actor {
     const systemData = actorData.system;
     const flags = actorData.flags.boilerplate || {};
 
-    // Make separate methods for each Actor type (character, npc, etc.) to keep
+    // Make separate methods for each data.actor type (character, npc, etc.) to keep
     // things organized.
     this._prepareCharacterData(actorData);
     this._prepareMonsterData(actorData);
@@ -214,7 +216,7 @@ export class EssenceUserActor extends Actor {
       }
     }
 
-    // Add level for easier access, or fall back to 0.
+    // data.add level for easier access, or fall back to 0.
     if (data.attributes.level) {
       data.lvl = data.attributes.level.value ?? 0;
     }

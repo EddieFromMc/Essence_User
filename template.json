@@ -10,6 +10,17 @@
           "health": {
             "value": 10,
             "min": 0,
+            "max": 10,
+			"mult": 1
+          },
+		  "stamina": {
+            "value": 10,
+            "min": 0,
+            "max": 10
+          },
+		  "mana": {
+            "value": 10,
+            "min": 0,
             "max": 10
           },
           "ac" : {
@@ -26,9 +37,9 @@
           "movespeed" : {
              "value" : 0,
              "mult" : 0,
-             "mod" : 0
+             "mod" : 0,
+			 "min" : 0
           },
-          "stats": {
             "power": {
               "value": 0,
               "display" : ""
@@ -44,10 +55,9 @@
             "recovery": {
               "value": 0,
               "display" : ""
-            }
-          },
+            },
           "skills": {
-            "acrobats" : 0,
+            "acrobatics" : 0,
             "aura" : 0,
             "perception" : 0
           }
