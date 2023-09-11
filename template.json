@@ -3,34 +3,79 @@
       "types": ["character", "monster"],
       "templates": {
         "base": {
+          "rank" : {
+            "value": 1,
+            "max" : 0
+          },
           "health": {
             "value": 10,
             "min": 0,
             "max": 10
           },
-          "abilities": {
+          "ac" : {
+            "value" : 0,
+            "max" : 0,
+            "low_mod" : 0,
+            "high_mod" : 0
+          },
+          "recovery" : {
+            "mana" : { "value" : 0, "mult" : 0, "mod" : 0},
+            "stamina" : { "value" : 0, "mult" : 0, "mod" : 0},
+            "health" : { "value" : 0, "mult" : 0, "mod" : 0}
+          }
+          "movespeed" : {
+             "value" : 0,
+             "mult" : 0,
+             "mod" : 0
+          },
+          "stats": {
             "power": {
-              "value": 0
+              "value": 0,
+              "display" : ""
             },
             "speed": {
-              "value": 0
+              "value": 0,
+              "display" : ""
             },
             "spirit": {
-              "value": 0
+              "value": 0,
+              "display" : ""
             },
             "recovery": {
-              "value": 0
+              "value": 0,
+              "display" : ""
             }
           },
-          "biography": ""
+          "skills": {
+            "acrobats" : 0,
+            "aura" : 0,
+            "perception" : 0
+          }
         }
       },
       "character": {
         "templates": ["base"],
-        "attributes": {
-          "level": {
-            "value": 1
-          }
+        "abilities": {
+            "ability1" : { "value": 0, "tu" : 0, "type": "", "capped": 0, "cost": "", "category": "" },
+            "ability2" : { "value": 0, "tu" : 0, "type": "", "capped": 0, "cost": "", "category": "" },
+            "ability3" : { "value": 0, "tu" : 0, "type": "", "capped": 0, "cost": "", "category": "" },
+            "ability4" : { "value": 0, "tu" : 0, "type": "", "capped": 0, "cost": "", "category": "" },
+            "ability5" : { "value": 0, "tu" : 0, "type": "", "capped": 0, "cost": "", "category": "" },
+            "ability6" : { "value": 0, "tu" : 0, "type": "", "capped": 0, "cost": "", "category": "" },
+            "ability7" : { "value": 0, "tu" : 0, "type": "", "capped": 0, "cost": "", "category": "" },
+            "ability8" : { "value": 0, "tu" : 0, "type": "", "capped": 0, "cost": "", "category": "" },
+            "ability9" : { "value": 0, "tu" : 0, "type": "", "capped": 0, "cost": "", "category": "" },
+            "ability10" : { "value": 0, "tu" : 0, "type": "", "capped": 0, "cost": "", "category": "" },
+            "ability11" : { "value": 0, "tu" : 0, "type": "", "capped": 0, "cost": "", "category": "" },
+            "ability12" : { "value": 0, "tu" : 0, "type": "", "capped": 0, "cost": "", "category": "" },
+            "ability13" : { "value": 0, "tu" : 0, "type": "", "capped": 0, "cost": "", "category": "" },
+            "ability14" : { "value": 0, "tu" : 0, "type": "", "capped": 0, "cost": "", "category": "" },
+            "ability15" : { "value": 0, "tu" : 0, "type": "", "capped": 0, "cost": "", "category": "" },
+            "ability16" : { "value": 0, "tu" : 0, "type": "", "capped": 0, "cost": "", "category": "" },
+            "ability17" : { "value": 0, "tu" : 0, "type": "", "capped": 0, "cost": "", "category": "" },
+            "ability18" : { "value": 0, "tu" : 0, "type": "", "capped": 0, "cost": "", "category": "" },
+            "ability19" : { "value": 0, "tu" : 0, "type": "", "capped": 0, "cost": "", "category": "" },
+            "ability20" : { "value": 0, "tu" : 0, "type": "", "capped": 0, "cost": "", "category": "" },
         }
       },
       "monster": {
