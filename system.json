@@ -1,6 +1,6 @@
 {
     "id": "Essence_User",
-    "title": "Essence User",
+    "title": "Essence_User",
     "description": "Essence Users from Chaos Incarnated",
     "version": "0.0.1",
     "compatibility": {
@@ -17,20 +17,13 @@
 
     ],
     "esmodules": [
-      
+      "module/actor.js"
     ],
     "styles": [
       
     ],
     "packs": [
       
-    ],
-  "languages": [
-      {
-        "lang": "en",
-        "name": "English",
-        "path": "lang/en.json"
-      }
     ],
     "socket": false,
     "initiative": "1d10+@spirit.value",
