@@ -17,7 +17,7 @@
 
     ],
     "esmodules": [
-      "module/actor.js"
+      "modules/actor.js"
     ],
     "styles": [
       
