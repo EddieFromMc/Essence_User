@@ -72,7 +72,7 @@ export class EssenceUserActor extends Actor {
             abilities[i].capped=1;
           }
         //Sets capped to null if next does not equal (Capped)
- 	if(abilities[i].mext=="(Capped)"){abilities[i].capped=0}
+ 	if(abilities[i].next=="(Capped)"){abilities[i].capped=0}
         }
 	      
         //sets abilities with 0 or "" use to tier 1
