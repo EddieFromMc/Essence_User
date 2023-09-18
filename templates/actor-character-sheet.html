@@ -1,0 +1,59 @@
+<form class="flexcol {{cssClass}}" autocomplete="off">
+
+   {{!-- Sheet Header --}}
+  <header class="sheet-header">
+   <img class="profile-img" src="{{data.img}}" data-edit="img" title="{{data.name}}" height="100" width="100" />
+   <div class="header-fields">
+ <table>
+  <tr>
+  <td>
+	  <div class="charname">
+	   Name:<input  name="name" type="text" value="{{data.name}}" placeholder="Name" />
+	  </div>
+	 </td>
+  <td>
+   <div class="resource">
+	   Rank: <strong>{{systemData.rank.max}}-{{systemData.rank.value}}</strong>
+	   Speed:
+	   <input type="number" name="system.movespeed.value" value="{{systemData.movespeed.value}}"/>
+   </div>
+  </td>
+  <td>
+   <div class="resource">
+  LaC/HaC:
+    <input type="number" name="system.ac.value" value="{{systemData.ac.value}}"/>
+    <span>/</span>
+    <input type="number" name="system.ac.max" value="{{systemData.ac.max}}"/>
+   </div> 
+  </td>
+ </tr>
+ <tr>
+  <td>
+   <div class="resource">
+	  Health
+    <input type="number" name="system.health.value" value="{{systemData.health.value}}"/>
+    <span>/</span>
+    <input type="number" name="system.health.max" value="{{systemData.health.max}}"/>
+   </div>
+  </td>
+  <td>
+   <div class="resource">
+	  Stamina:
+    <input type="number" name="system.stamina.value" value="{{systemData.stamina.value}}"/>
+    <span>/</span>
+    <input type="number" name="system.stamina.max" value="{{systemData.stamina.max}}"/>
+   </div>
+  </td>
+  <td>
+   <div class="resource">
+	  Mana:
+    <input type="number" name="system.mana.value" value="{{systemData.mana.value}}"/>
+    <span>/</span>
+    <input type="number" name="system.mana.max" value="{{systemData.mana.max}}"/>
+   </div>
+  </td>
+ </tr>
+   </table> 
+  </div>
+ </header>
+</form>

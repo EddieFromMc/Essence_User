@@ -1,8 +1,8 @@
 {
     "id": "Essence_User",
     "title": "Essence_User",
-    "description": "Essence Users from Chaos Incarnated",
-    "version": "0.0.1",
+    "description": "Work in Progress",
+    "version": "0.0.2",
     "compatibility": {
       "minimum": "10",
       "verified": "11",
@@ -13,11 +13,8 @@
         "name": "Magician"
       }
     ],
-    "scripts": [
-
-    ],
     "esmodules": [
-      "modules/main.js"
+      "module/Essence_User.js"
     ],
     "styles": [
       
