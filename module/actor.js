@@ -115,13 +115,13 @@ export class Essence_UserActor extends Actor {
       stats[i].value=Math.floor(stats[i].value)
     }
     //Health Calc, Not breaking any of the below down, do it yourself xD
-    data.health.max=Math.floor(((Math.floor(Number(data.spirit.value))*(3+Number(data.rank.max)))+Number(10)+Number(data.rank.max)*Number(10)+(Math.floor(Number(data.recovery.value))*(6+Number(data.rank.max)))+data.health.mod)*data.health.mult)
+    data.health.max=Math.floor(((Math.floor(Number(stats[2].value))*(3+Number(data.rank.max)))+Number(10)+Number(data.rank.max)*Number(10)+(Math.floor(Number(stats[3].value))*(6+Number(data.rank.max)))+data.health.mod)*data.health.mult)
     //Low data.aC Calc
-    data.ac.value=5+Math.floor(data.power.value)+data.ac.low_mod;
+    data.ac.value=5+Math.floor(stats[0].value)+data.ac.low_mod;
     //High data.aC Calc
-    data.ac.max=15+Math.floor(data.power.value)+Math.floor(data.speed.value)-9*data.rank.max+data.ac.high_mod;
+    data.ac.max=15+Math.floor(stats[0].value)+Math.floor(stats[1].value)-9*data.rank.max+data.ac.high_mod;
     //Movespeed Calc
-    data.movespeed.value=(Math.floor(data.speed.value/5)*Math.min((10+5*Math.floor((data.skills.acrobatics/data.rank.max)/2)),20)+data.movespeed.mod)*data.movespeed.mult
+    data.movespeed.value=(Math.floor(stats[1].value/5)*Math.min((10+5*Math.floor((data.skills.acrobatics/data.rank.max)/2)),20)+data.movespeed.mod)*data.movespeed.mult
     //Movespeed override for 0 Speed
     if(data.movespeed.value==0){data.movespeed.value=(5+data.movespeed.mod)*data.movespeed.mult}
 	///Set movespeed to min if less.
