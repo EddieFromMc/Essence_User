@@ -24,14 +24,14 @@ export class Essence_UserActor extends Actor {
       // Transform 1D array above into 2D data.array for ease of use later
       const uses = [usesActive,usesPassive,scumUsesActive,scumUsesPassive,special];
       // data.array for 20 data.abilities, [Note! The template wasn't uploaded, so to be filled in, pseudocode for now]
-      let abilities = [data.ability1,data.ability2,data.ability2,data.ability3,data.ability4,data.ability5,data.ability6,data.ability7,data.ability8,data.ability9,data.ability10,data.ability11,data.ability12,data.ability13,data.ability14,data.ability15,data.ability16,data.ability17,data.ability18,data.ability19,data.ability20];
+      const abilities = [data.abilities.ability1,data.abilities.ability2,data.abilities.ability2,data.abilities.ability3,data.abilities.ability4,data.abilities.ability5,data.abilities.ability6,data.abilities.ability7,data.abilities.ability8,data.abilities.ability9,data.abilities.ability10,data.abilities.ability11,data.abilities.ability12,data.abilities.ability13,data.abilities.ability14,data.abilities.ability15,data.abilities.ability16,data.abilities.ability17,data.abilities.ability18,data.abilities.ability19,data.abilities.ability20];
       //For loop, to loop through all 20 abilities, i represent the ability number here
-      for(let i = 0;i<abilites.length;i++) {
+      for(let i = 0;i<abilities.length;i++) {
         //quickly checks amount of capped abilities, for use in equations later
         var Capped = 0;
 	      
 	//Ignore for loop if capped is already 3 or higher
-        for(let z = 0;z<abilites.length;z++) {
+        for(let z = 0;z<abilities.length;z++) {
           //breaks if capped abilities are greater than or equal to 3, and sets it to 3
 	  if(Capped>3 || Capped==3){
             Capped=3;
@@ -51,14 +51,14 @@ export class Essence_UserActor extends Actor {
         }else{type=4;}
 	      
         //preference uses of abilities for quick use later(Probably not needed, but makes it more readable)
-        var totalUses=Math.floor(abilites[i].tu);
+        var totalUses=Math.floor(abilities[i].tu);
         //variable for looping through the level of ability
         var level = 1;
         // While loop, goes through and levels up abilities, while total uses are greater than or equal to the requirement for the next tier
         while(totalUses==uses[type][level-1] || totalUses>uses[type][level-1]){
           //breaks the while loop if the level gets too high.
           if(level>9){break;}
-          //if Capped is greater than 0 and level equals 9(data.ability tier 10) gives bonus uses from capped.
+          //if Capped is greater than 0 and level equals 9(data.abilities.ability tier 10) gives bonus uses from capped.
           if(Capped>0 && level==9){totalUses+=Capped;}
           //subtract the tier-up cost from totalUses, 
           totalUses-=uses[type][level-1];
@@ -75,15 +75,14 @@ export class Essence_UserActor extends Actor {
         }
 	      
         //sets abilities with 0 or "" use to tier 1
-        if((Math.floor(abilites[i].tu)==0 || Math.floor(abilites[i].tu)=="") && abilites[i].type!=""){abilites[i].value=1;}
+        if((Math.floor(abilities[i].tu)==0 || Math.floor(abilities[i].tu)=="") && abilities[i].type!=""){abilities[i].value=1;}
         //End For Loop & Character check
       }
     }
-  
-    //Grab stats as array=
-    let stats = [data.power,data.speed,data.spirit,data.recovery];
+    //Grab stats as array
+    const stats = [data.stats.power,data.stats.speed,data.stats.spirit,data.stats.recovery];
     //Calculate Rank
-    data.rank.value=(((Number(data.power.value)+Number(data.speed.value)+Number(data.spirit.value)+Number(data.recovery.value))/4) ^ 0);
+    data.rank.value=(((Number(stats[0].value)+Number(stats[1].value)+Number(stats[2].value)+Number(stats[3].value))/4) ^ 0);
     data.rank.max = Math.ceil(data.rank.value/10);
     //Force update from Unranked to Iron.
     if((data.rank.value*4)>3 && (data.rank.value*4)<16 ){data.rank.max=1}
@@ -116,7 +115,7 @@ export class Essence_UserActor extends Actor {
       stats[i].value=Math.floor(stats[i].value)
     }
     //Health Calc, Not breaking any of the below down, do it yourself xD
-    data.health.max=Math.floor(((Math.floor(Number(data.spirit.value))*(3+Number(data.rank.max)))+Number(10)+Number(temp)+Number(data.rank.max)*Number(10)+(Math.floor(Number(data.recovery.value))*(6+Number(data.rank.max)))+data.health.mod)*data.health.mult)
+    data.health.max=Math.floor(((Math.floor(Number(data.spirit.value))*(3+Number(data.rank.max)))+Number(10)+Number(data.rank.max)*Number(10)+(Math.floor(Number(data.recovery.value))*(6+Number(data.rank.max)))+data.health.mod)*data.health.mult)
     //Low data.aC Calc
     data.ac.value=5+Math.floor(data.power.value)+data.ac.low_mod;
     //High data.aC Calc
