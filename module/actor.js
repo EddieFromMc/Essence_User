@@ -132,6 +132,11 @@ export class Essence_UserActor extends Actor {
     data.recovery.stamina.value=Math.round(((0.1+data.rank.max/20)*Math.floor(data.recovery.value)+data.recovery.stamina.mod)*data.recovery.stamina.mult*100)/100
     //Health recovery Calc
     data.recovery.health.value=Math.round(((data.rank.max/50)*Math.floor(data.recovery.value)+data.recovery.health.mod)*data.recovery.health.mult*1000)/1000
+	
+	//Bar Adjustments for sheet
+	data.health.bar=(data.health.value/data.health.max)*100
+	data.stamina.bar=(data.stamina.value/data.stamina.max)*100
+	data.mana.bar=(data.mana.value/data.mana.max)*100
   }
 
   /** @override */

@@ -11,17 +11,20 @@
             "value": 10,
             "min": 0,
             "max": 10,
-			"mult": 1
+			"mult": 1,
+			"bar": 0
           },
 		  "stamina": {
             "value": 10,
             "min": 0,
-            "max": 100
+            "max": 100,
+			"bar": 0
           },
 		  "mana": {
             "value": 10,
             "min": 0,
-            "max": 100
+            "max": 100,
+			"bar": 0
           },
           "ac" : {
             "value" : 0,
