@@ -14,7 +14,7 @@ export class Essence_UserActor extends Actor {
     //Quick Reference this.system for readablity
     let  data = this.system;
     // Check we are actually using a character sheet, ignore otherwise | Gonna go comment-heavy to help Dan and Beef, remove comments if you wish
-	const abilities = [data.abilities.ability1,data.abilities.ability2,data.abilities.ability2,data.abilities.ability3,data.abilities.ability4,data.abilities.ability5,data.abilities.ability6,data.abilities.ability7,data.abilities.ability8,data.abilities.ability9,data.abilities.ability10,data.abilities.ability11,data.abilities.ability12,data.abilities.ability13,data.abilities.ability14,data.abilities.ability15,data.abilities.ability16,data.abilities.ability17,data.abilities.ability18,data.abilities.ability19,data.abilities.ability20];
+	const abilities = [data.abilities.ability1,data.abilities.ability2,data.abilities.ability3,data.abilities.ability4,data.abilities.ability5,data.abilities.ability6,data.abilities.ability7,data.abilities.ability8,data.abilities.ability9,data.abilities.ability10,data.abilities.ability11,data.abilities.ability12,data.abilities.ability13,data.abilities.ability14,data.abilities.ability15,data.abilities.ability16,data.abilities.ability17,data.abilities.ability18,data.abilities.ability19,data.abilities.ability20];
     if (this.type==="character") {
       // Tables listing uses required to reach the next tier
       let usesActive = [1,2,3,4,5,6,7,8,9,10,11];
@@ -78,7 +78,7 @@ export class Essence_UserActor extends Actor {
     const stats = [data.stats.power,data.stats.speed,data.stats.spirit,data.stats.recovery];
 	//Calculate Stats
 	for (let i = 0; i < stats.length; i++) {
-		stats[i].value = Number((abilities[i*5].value+abilities[1+i*5].value+abilities[2+i*5].value+abilities[3+i*5].value+abilities[4+i*5].value)/5);
+		stats[i].value = Number(1+(abilities[i*5].value+abilities[1+i*5].value+abilities[2+i*5].value+abilities[3+i*5].value+abilities[4+i*5].value)/5);
 		stats[i].value+=stats[i].mod;
 	}
     //Calculate Rank
