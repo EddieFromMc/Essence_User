@@ -14,6 +14,7 @@ export class Essence_UserActor extends Actor {
     //Quick Reference this.system for readablity
     let  data = this.system;
     // Check we are actually using a character sheet, ignore otherwise | Gonna go comment-heavy to help Dan and Beef, remove comments if you wish
+	const abilities = [data.abilities.ability1,data.abilities.ability2,data.abilities.ability2,data.abilities.ability3,data.abilities.ability4,data.abilities.ability5,data.abilities.ability6,data.abilities.ability7,data.abilities.ability8,data.abilities.ability9,data.abilities.ability10,data.abilities.ability11,data.abilities.ability12,data.abilities.ability13,data.abilities.ability14,data.abilities.ability15,data.abilities.ability16,data.abilities.ability17,data.abilities.ability18,data.abilities.ability19,data.abilities.ability20];
     if (this.type==="character") {
       // Tables listing uses required to reach the next tier
       let usesActive = [1,2,3,4,5,6,7,8,9,10,11];
@@ -24,23 +25,10 @@ export class Essence_UserActor extends Actor {
       // Transform 1D array above into 2D data.array for ease of use later
       const uses = [usesActive,usesPassive,scumUsesActive,scumUsesPassive,special];
       // data.array for 20 data.abilities, [Note! The template wasn't uploaded, so to be filled in, pseudocode for now]
-      const abilities = [data.abilities.ability1,data.abilities.ability2,data.abilities.ability2,data.abilities.ability3,data.abilities.ability4,data.abilities.ability5,data.abilities.ability6,data.abilities.ability7,data.abilities.ability8,data.abilities.ability9,data.abilities.ability10,data.abilities.ability11,data.abilities.ability12,data.abilities.ability13,data.abilities.ability14,data.abilities.ability15,data.abilities.ability16,data.abilities.ability17,data.abilities.ability18,data.abilities.ability19,data.abilities.ability20];
       //For loop, to loop through all 20 abilities, i represent the ability number here
       for(let i = 0;i<abilities.length;i++) {
         //quickly checks amount of capped abilities, for use in equations later
-        var Capped = 0;
-	      
-	//Ignore for loop if capped is already 3 or higher
-        for(let z = 0;z<abilities.length;z++) {
-          //breaks if capped abilities are greater than or equal to 3, and sets it to 3
-	  if(Capped>3 || Capped==3){
-            Capped=3;
-            break;
-	  }
-          //Totals capped abilities
-          if(abilities[i].capped==1) { Capped++; }
-        }
-	      
+      
         //ability type input for array use later
         var type = 0;
         //Check type of ability, through convoluted if statements (Can use some work)
@@ -54,8 +42,14 @@ export class Essence_UserActor extends Actor {
         var totalUses=Math.floor(abilities[i].tu);
         //variable for looping through the level of ability
         var level = 1;
+		var Capped = 0;
+		for(let z = 0;z<abilities.length;z++) {
+		if(abilities[z].capped==1) { Capped++; }
+		if(Capped>2){Capped=3;}
+		}
         // While loop, goes through and levels up abilities, while total uses are greater than or equal to the requirement for the next tier
         while(totalUses==uses[type][level-1] || totalUses>uses[type][level-1]){
+        //Totals capped abilities
           //breaks the while loop if the level gets too high.
           if(level>9){break;}
           //if Capped is greater than 0 and level equals 9(data.abilities.ability tier 10) gives bonus uses from capped.
@@ -64,14 +58,15 @@ export class Essence_UserActor extends Actor {
           totalUses-=uses[type][level-1];
           //increases abilities tier
           abilities[i].value=level+1;
-          //Sets display of requirement to next tier to capped if TotalUses is Not a Number or if the ability is capped.
+          //Sets display of requirement to next tier to capped if TotalUses is Not a Number or if the ability is capped.[1,1,1,1,1,2,2,2,2,5]
           if(isNaN(totalUses/uses[type][level]) || (Math.round((totalUses/uses[type][level])*100))>99){
             abilities[i].next="(Capped)";
             abilities[i].value++;
             abilities[i].capped=1;
-          }
+          }else{abilities[i].next=totalUses+"/"+uses[type][level]+"("+Math.round((totalUses/uses[type][level])*100)+"%)"}
         //Sets capped to null if next does not equal (Capped)
- 	if(abilities[i].next=="(Capped)"){abilities[i].capped=0}
+ 	if(abilities[i].next!="(Capped)"){abilities[i].capped=0}
+	level++;
         }
 	      
         //sets abilities with 0 or "" use to tier 1
@@ -81,6 +76,11 @@ export class Essence_UserActor extends Actor {
     }
     //Grab stats as array
     const stats = [data.stats.power,data.stats.speed,data.stats.spirit,data.stats.recovery];
+	//Calculate Stats
+	for (let i = 0; i < stats.length; i++) {
+		stats[i].value = Number((abilities[i*5].value+abilities[1+i*5].value+abilities[2+i*5].value+abilities[3+i*5].value+abilities[4+i*5].value)/5);
+		stats[i].value+=stats[i].mod;
+	}
     //Calculate Rank
     data.rank.value=(((Number(stats[0].value)+Number(stats[1].value)+Number(stats[2].value)+Number(stats[3].value))/4) ^ 0);
     data.rank.max = Math.ceil(data.rank.value/10);
@@ -115,7 +115,7 @@ export class Essence_UserActor extends Actor {
       stats[i].value=Math.floor(stats[i].value)
     }
     //Health Calc, Not breaking any of the below down, do it yourself xD
-    data.health.max=Math.floor(((Math.floor(Number(stats[2].value))*(3+Number(data.rank.max)))+Number(10)+Number(data.rank.max)*Number(10)+(Math.floor(Number(stats[3].value))*(6+Number(data.rank.max)))+data.health.mod)*data.health.mult)
+	data.health.max=Math.floor(((Math.floor(Number(stats[2].value))*(3+Number(data.rank.max)))+Number(10)+Number(data.rank.max)*Number(10)+(Math.floor(Number(stats[3].value))*(6+Number(data.rank.max)))+data.health.mod)*data.health.mult)
     //Low data.aC Calc
     data.ac.value=5+Math.floor(stats[0].value)+data.ac.low_mod;
     //High data.aC Calc
@@ -123,7 +123,7 @@ export class Essence_UserActor extends Actor {
     //Movespeed Calc
     data.movespeed.value=(Math.floor(stats[1].value/5)*Math.min((10+5*Math.floor((data.skills.acrobatics/data.rank.max)/2)),20)+data.movespeed.mod)*data.movespeed.mult
     //Movespeed override for 0 Speed
-    if(data.movespeed.value==0){data.movespeed.value=(5+data.movespeed.mod)*data.movespeed.mult}
+    if(data.movespeed.value==0 || data.movespeed.value==NaN){data.movespeed.value=(5+data.movespeed.mod)*data.movespeed.mult}
 	///Set movespeed to min if less.
 	if(data.movespeed.min>data.movespeed.value){data.movespeed.value=data.movespeed.min;}
     //Mana recovery Calc

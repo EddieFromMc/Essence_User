@@ -5,12 +5,13 @@
         "base": {
           "rank" : {
             "value": 1,
-            "max" : 0
+            "max":0
           },
           "health": {
             "value": 10,
             "min": 0,
             "max": 10,
+			"mod": 0,
 			"mult": 1,
 			"bar": 0
           },
@@ -27,44 +28,48 @@
 			"bar": 0
           },
           "ac" : {
-            "value" : 0,
-            "max" : 0,
-            "low_mod" : 0,
-            "high_mod" : 0
+            "value":0,
+            "max":0,
+            "low_mod":0,
+            "high_mod":0
           },
           "recovery" : {
-            "mana" : { "value" : 0, "mult" : 0, "mod" : 0},
-            "stamina" : { "value" : 0, "mult" : 0, "mod" : 0},
-            "health" : { "value" : 0, "mult" : 0, "mod" : 0}
+            "mana" : { "value":0, "mult":0, "mod":0},
+            "stamina" : { "value":0, "mult":0, "mod":0},
+            "health" : { "value":0, "mult":0, "mod":0}
           },
           "movespeed" : {
-             "value" : 0,
-             "mult" : 0,
-             "mod" : 0,
-			 "min" : 0
+             "value":0,
+             "mult":1,
+             "mod":0,
+			 "min":0
           },
 		  "stats":{
             "power": {
               "value": 0,
+			  "mod": 0,
               "display" : ""
             },
             "speed": {
               "value": 0,
+			  "mod": 0,
               "display" : ""
             },
             "spirit": {
               "value": 0,
+			  "mod": 0,
               "display" : ""
             },
             "recovery": {
               "value": 0,
+			  "mod": 0,
               "display" : ""
             }
 		  },
           "skills": {
-            "acrobatics" : 0,
-            "aura" : 0,
-            "perception" : 0
+            "acrobatics":0,
+            "aura":0,
+            "perception":0
           }
         }
       },
@@ -72,26 +77,26 @@
         "templates": ["base"],
 		"htmlFields": ["race","knowelege","effect1","effect2","effect3","effect4","effect5","effect6","effect7","effect8","effect9","effect10","effect11","effect12","effect13","effect14","effect15","effect16","effect17","effect18","effect19","effect20","usernotes"],
         "abilities": {
-            "ability1" : { "value": 0, "tu" : 0, "type": "", "capped": 0, "category": "" },
-            "ability2" : { "value": 0, "tu" : 0, "type": "", "capped": 0, "category": "" },
-            "ability3" : { "value": 0, "tu" : 0, "type": "", "capped": 0, "category": "" },
-            "ability4" : { "value": 0, "tu" : 0, "type": "", "capped": 0, "category": "" },
-            "ability5" : { "value": 0, "tu" : 0, "type": "", "capped": 0, "category": "" },
-            "ability6" : { "value": 0, "tu" : 0, "type": "", "capped": 0, "category": "" },
-            "ability7" : { "value": 0, "tu" : 0, "type": "", "capped": 0, "category": "" },
-            "ability8" : { "value": 0, "tu" : 0, "type": "", "capped": 0, "category": "" },
-            "ability9" : { "value": 0, "tu" : 0, "type": "", "capped": 0, "category": "" },
-            "ability10" : { "value": 0, "tu" : 0, "type": "", "capped": 0, "category": "" },
-            "ability11" : { "value": 0, "tu" : 0, "type": "", "capped": 0, "category": "" },
-            "ability12" : { "value": 0, "tu" : 0, "type": "", "capped": 0, "category": "" },
-            "ability13" : { "value": 0, "tu" : 0, "type": "", "capped": 0, "category": "" },
-            "ability14" : { "value": 0, "tu" : 0, "type": "", "capped": 0, "category": "" },
-            "ability15" : { "value": 0, "tu" : 0, "type": "", "capped": 0, "category": "" },
-            "ability16" : { "value": 0, "tu" : 0, "type": "", "capped": 0, "category": "" },
-            "ability17" : { "value": 0, "tu" : 0, "type": "", "capped": 0, "category": "" },
-            "ability18" : { "value": 0, "tu" : 0, "type": "", "capped": 0, "category": "" },
-            "ability19" : { "value": 0, "tu" : 0, "type": "", "capped": 0, "category": "" },
-            "ability20" : { "value": 0, "tu" : 0, "type": "", "capped": 0, "category": "" }
+            "ability1" : { "value": 0, "tu":0, "next": "", "type": "", "capped": 0, "category": "" },
+            "ability2" : { "value": 0, "tu":0, "next": "", "type": "", "capped": 0, "category": "" },
+            "ability3" : { "value": 0, "tu":0, "next": "", "type": "", "capped": 0, "category": "" },
+            "ability4" : { "value": 0, "tu":0, "next": "", "type": "", "capped": 0, "category": "" },
+            "ability5" : { "value": 0, "tu":0, "next": "", "type": "", "capped": 0, "category": "" },
+            "ability6" : { "value": 0, "tu":0, "next": "", "type": "", "capped": 0, "category": "" },
+            "ability7" : { "value": 0, "tu":0, "next": "", "type": "", "capped": 0, "category": "" },
+            "ability8" : { "value": 0, "tu":0, "next": "", "type": "", "capped": 0, "category": "" },
+            "ability9" : { "value": 0, "tu":0, "next": "", "type": "", "capped": 0, "category": "" },
+            "ability10" : { "value": 0, "tu":0, "next": "", "type": "", "capped": 0, "category": "" },
+            "ability11" : { "value": 0, "tu":0, "next": "", "type": "", "capped": 0, "category": "" },
+            "ability12" : { "value": 0, "tu":0, "next": "", "type": "", "capped": 0, "category": "" },
+            "ability13" : { "value": 0, "tu":0, "next": "", "type": "", "capped": 0, "category": "" },
+            "ability14" : { "value": 0, "tu":0, "next": "", "type": "", "capped": 0, "category": "" },
+            "ability15" : { "value": 0, "tu":0, "next": "", "type": "", "capped": 0, "category": "" },
+            "ability16" : { "value": 0, "tu":0, "next": "", "type": "", "capped": 0, "category": "" },
+            "ability17" : { "value": 0, "tu":0, "next": "", "type": "", "capped": 0, "category": "" },
+            "ability18" : { "value": 0, "tu":0, "next": "", "type": "", "capped": 0, "category": "" },
+            "ability19" : { "value": 0, "tu":0, "next": "", "type": "", "capped": 0, "category": "" },
+            "ability20" : { "value": 0, "tu":0, "next": "", "type": "", "capped": 0, "category": "" }
         }
       },
       "monster": {
