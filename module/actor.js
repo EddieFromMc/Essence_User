@@ -157,7 +157,7 @@ export class Essence_UserActor extends Actor {
   prepareDerivedData() {
     let actorData = this;
     let systemData = actorData.system;
-    let flags = actorData.flags.boilerplate || {};
+    let flags = actorData.flags.Essence_User || {};
 
     // Make separate methods for each data.actor type (character, npc, etc.) to keep
     // things organized.
@@ -173,12 +173,6 @@ export class Essence_UserActor extends Actor {
 
     // Make modifications to data here. For example:
     let systemData = actorData.system;
-
-    // Loop through ability scores, and add their modifiers to our sheet output.
-    for (let [key, ability] of Object.entries(systemData.abilities)) {
-      // Calculate the modifier using d20 rules.
-      ability.mod = Math.floor((ability.value - 10) / 2);
-    }
   }
 
   /**
@@ -189,7 +183,6 @@ export class Essence_UserActor extends Actor {
 
     // Make modifications to data here. For example:
     let systemData = actorData.system;
-    // systemData.xp = (systemData.cr * systemData.cr) * 100;
   }
 
   /**
@@ -197,41 +190,7 @@ export class Essence_UserActor extends Actor {
    */
   getRollData() {
     let data = super.getRollData();
-
-    // Prepare character roll data.
-    this._getCharacterRollData(data);
-    this._getMonsterRollData(data);
-
     return data;
-  }
-
-  /**
-   * Prepare character roll data.
-   */
-  _getCharacterRollData(data) {
-    if (this.type !== 'character') return;
-
-    // Copy the ability scores to the top level, so that rolls can use
-    // formulas like `@str.mod + 4`.
-    if (data.abilities) {
-      for (let [k, v] of Object.entries(data.abilities)) {
-        data[k] = foundry.utils.deepClone(v);
-      }
-    }
-
-    // data.add level for easier access, or fall back to 0.
-    if (data.attributes.level) {
-      data.lvl = data.attributes.level.value ?? 0;
-    }
-  }
-
-  /**
-   * Prepare NPC roll data.
-   */
-  _getMonsterRollData(data) {
-    if (this.type !== 'monster') return;
-
-    // Process additional NPC data here.
   }
 
 }

@@ -1,99 +1,605 @@
 <form class="flexcol {{cssClass}}" autocomplete="off">
-
-   {{!-- Sheet Header --}}
+  {{!-- Sheet Header --}}
   <header class="sheet-header">
-   <img class="profile-img" src="{{data.img}}" data-edit="img" title="{{data.name}}" height="100" width="100" />
-   <div class="header-fields">
- <table>
-  <tr>
-  <td>
-	  <div class="charname">
-	   Name:<input  name="name" type="text" value="{{data.name}}" placeholder="Name" />
-	  </div>
-	 </td>
-  <td>
-   <div class="resource">
-	   Rank: <strong>{{actor.system.rank.max}}-{{actor.system.rank.value}}</strong>
-	   Actions:
-	   <input style="height: 20px; padding: 0px;" type="checkbox" name="A1" value="A1">
-	   <input style="height: 20px; padding: 0px;" type="checkbox" name="A2" value="A2">
-	   <input style="height: 20px; padding: 0px;" type="checkbox" name="A3" value="A3">
-	   <input style="height: 20px; padding: 0px;" type="checkbox" name="A4" value="A4">
-	   <input style="height: 20px; padding: 0px;" type="checkbox" name="A5" value="A5">
-   </div>
-   <td>
-   Speed:
-	   <input style="width: 60px; border: 1px solid black; background: transparent;" type="number" name="system.movespeed.value" value="{{actor.system.movespeed.value}}"/>
-    <strong>DR:</strong>
-	   <input style="width: 30px; border: 1px solid black; background: transparent;" type="number" name="DR" value="0"/>
-	   LaC/HaC:
-    <input style="width: 30px; border: 1px solid black; background: transparent;" type="number" name="system.ac.value" value="{{actor.system.ac.value}}"/>
-    <span>/</span>
-    <input style="width: 30px; border: 1px solid black; background: transparent;" type="number" name="system.ac.max" value="{{actor.system.ac.max}}"/>
-   </td>
-  </td>
-  <td>
-  </td>
- </tr>
- <tr>
-  <td>
-   <div class="resource">
-    <div style="height:20px">
-	<b>Health</b>
-	<input style="width: 30px; height: 25px; border: none; background: transparent;" type="number" name="system.health.value" value="{{actor.system.health.value}}">/<input style="width: 30px; height: 25px; border: none; background: transparent;" type="number" name="system.health.max" value="{{actor.system.health.max}}"/>
-	</div>
-	<div style="border: 1px solid black;">
-	   <input style="width: {{actor.system.health.bar}}%; background-color: Brown; height: 25px;" disabled=true;>
-	</div>
-  </td>
-  <td>
-   <div style="height:20px">
-	<b>Stamina</b>
-	<input style="width: 30px; height: 25px; border: none; background: transparent;" type="number" name="system.stamina.value" value="{{actor.system.stamina.value}}">/<input style="width: 30px; height: 25px; border: none; background: transparent;" type="number" name="system.stamina.max" value="{{actor.system.stamina.max}}"/>
-   </div>
-   <div style="border: 1px solid black;">
-	   <input style="width: {{actor.system.stamina.bar}}%; background-color: ForestGreen; height: 25px;" disabled=true;>
-	   </div>
-  </td>
-  <td>
-   <div style="height:20px">
-	<b>Mana</b>
-	<input style="width: 30px; height: 25px; border: none; background: transparent;" type="number" name="system.mana.value" value="{{actor.system.mana.value}}">/<input style="width: 30px; height: 25px; border: none; background: transparent;" type="number" name="system.mana.max" value="{{actor.system.mana.max}}"/>
-   </div>
-   <div style="border: 1px solid black;">   
-       <input style="width: {{actor.system.mana.bar}}%; background-color: DarkTurquoise; height: 25px;" disabled=true;>
-   </div>
-  </td>
- </tr>
-   </table> 
-  </div>
- </header>
- {{!-- Sheet Tab Navigation --}}
- <nav class="sheet-tabs tabs" data-group="primary">
-  <a class="item" data-tab="abilites">Abilites</a>
-  <a class="item" data-tab="description">Description</a>
-  <a class="item" data-tab="items">Items</a>
-  <a class="item" data-tab="modifers">Modifers</a>
- </nav>
-
- {{!-- Sheet Body --}}
- <section class="sheet-body">
-
-{{!-- Abilites Tab --}}
-<div class="tab description" data-group="primary" data-tab="abilites">
-</div>
-
-  {{!-- Biography Tab --}}
-  <div class="tab description" data-group="primary" data-tab="description">    
-  
-  </div>
-
-	{{!-- Attributes Tab --}}
-  <div class="tab modifers" data-group="primary" data-tab="modifers">
-  </div>
-
-  {{!-- Owned Items Tab --}}
-  <div class="tab items" data-group="primary" data-tab="items">
-  </div>
- </section>
+    <img class="profile-img" src="{{data.img}}" data-edit="img" title="{{data.name}}" height="100" width="100" />
+    <div class="header-fields">
+    <table>
+      <tr>
+        <td>
+          <div class="charname">
+            Name:<input  name="name" type="text" value="{{data.name}}" placeholder="Name" />
+          </div>
+        </td>
+        <td>
+          <table style="background: transparent; border: none;">
+            <tr>
+              <td>
+              </td>
+              <td>
+                Rank: <strong>{{actor.system.rank.max}}-{{actor.system.rank.value}}</strong>
+                Actions:
+                <input style="height: 20px; margin: 0px 0px 0px 0px;" type="checkbox" name="A1" value="A1">
+                <input style="height: 20px; margin: 0px 0px 0px 0px;" type="checkbox" name="A2" value="A2">
+                <input style="height: 20px; margin: 0px 0px 0px 0px;" type="checkbox" name="A3" value="A3">
+                <input style="height: 20px; margin: 0px 0px 0px 0px;" type="checkbox" name="A4" value="A4">
+                <input style="height: 20px; margin: 0px 0px 0px 0px;" type="checkbox" name="A5" value="A5">
+              </td>
+            </tr>
+          </table>
+        </td>
+        <td>
+          <table style="background: transparent; border: none;">
+            <tr>
+              <td>
+                Speed:
+                <input style="width: 60px; border: 1px solid black; background: transparent;" type="number" name="system.movespeed.value" value="{{actor.system.movespeed.value}}"/>
+              </td>
+              <td>
+                <strong>DR:</strong>
+                <input style="width: 30px; border: 1px solid black; background: transparent;" type="number" name="DR" value="0"/>
+              </td>
+              <td>
+                LaC/HaC:
+                <input style="width: 30px; border: 1px solid black; background: transparent;" type="number" name="system.ac.value" value="{{actor.system.ac.value}}"/>
+                <span>/</span>
+                <input style="width: 30px; border: 1px solid black; background: transparent;" type="number" name="system.ac.max" value="{{actor.system.ac.max}}"/>
+              </td>
+            </tr>
+          </table>
+        </td>
+        </td>
+        <td>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <div class="resource">
+            <div style="height:20px">
+              <b>Health</b>
+              <input style="width: 30px; height: 25px; border: none; background: transparent;" type="number" name="system.health.value" value="{{actor.system.health.value}}">/<input style="width: 30px; height: 25px; border: none; background: transparent;" type="number" name="system.health.max" value="{{actor.system.health.max}}"/>
+            </div>
+            <div style="border: 1px solid black;">
+              <input style="width: {{actor.system.health.bar}}%; background-color: Brown; height: 25px;" disabled=true;>
+            </div>
+        </td>
+        <td>
+        <div style="height:20px">
+        <b>Stamina</b>
+        <input style="width: 30px; height: 25px; border: none; background: transparent;" type="number" name="system.stamina.value" value="{{actor.system.stamina.value}}">/<input style="width: 30px; height: 25px; border: none; background: transparent;" type="number" name="system.stamina.max" value="{{actor.system.stamina.max}}"/>
+        </div>
+        <div style="border: 1px solid black;">
+        <input style="width: {{actor.system.stamina.bar}}%; background-color: ForestGreen; height: 25px;" disabled=true;>
+        </div>
+        </td>
+        <td>
+        <div style="height:20px">
+        <b>Mana</b>
+        <input style="width: 30px; height: 25px; border: none; background: transparent;" type="number" name="system.mana.value" value="{{actor.system.mana.value}}">/<input style="width: 30px; height: 25px; border: none; background: transparent;" type="number" name="system.mana.max" value="{{actor.system.mana.max}}"/>
+        </div>
+        <div style="border: 1px solid black;">   
+        <input style="width: {{actor.system.mana.bar}}%; background-color: DarkTurquoise; height: 25px;" disabled=true;>
+        </div>
+        </td>
+      </tr>
+    </table>
+    </div>
+  </header>
+  {{!-- Sheet Tab Navigation --}}
+  <nav class="sheet-tabs tabs" data-group="primary">
+    <a class="item" data-tab="abilites">Abilites</a>
+    <a class="item" data-tab="description">Description</a>
+    <a class="item" data-tab="items">Items</a>
+    <a class="item" data-tab="modifers">Modifers</a>
+  </nav>
+<section class="sheet-body">  
+	{{!-- Abilites Tab --}}
+    <div class="tab description" data-group="primary" data-tab="abilites">
+      <table>
+        <tr>
+          <td>
+            <div  class="stat" text-align=center>
+              <input style="width:60px;" type="text" name="system.stats.power.stone" value="{{actor.system.stats.power.stone}}" placeholder="Empty"/>
+              <strong>Power</strong> - {{actor.system.stats.power.display}}
+            </div>
+          </td>
+          <td>
+            <div  class="stat" text-align=center>
+              <input style="width:60px;" type="text" name="system.stats.speed.stone" value="{{actor.system.stat.speed.stone}}" placeholder="Empty"/>
+              <strong>Speed</strong> - {{actor.system.stats.speed.display}}
+            </div>
+          </td>
+          <td>
+            <div  class="stat" text-align=center>
+              <input style="width:60px;" type="text" name="system.stats.spirit.stone" value="{{actor.system.stats.spirit.stone}}" placeholder="Empty"/>
+              <strong>Spirit</strong> - {{actor.system.stats.spirit.display}}
+            </div>
+          </td>
+          <td>
+            <div  class="stat" text-align=center>
+              <input style="width:60px;" type="text" name="system.stats.recovery.stone" value="{{actor.system.stats.recovery.stone}}" placeholder="Empty"/>
+              <strong>Recovery</strong> - {{actor.system.stats.recovery.display}}
+            </div>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <div class="abilityname">   
+              <input style="width: 60px;" type="text" name="system.abilities.ability1.stone" value="{{actor.system.abilities.ability1.stone}}" placeholder="stone" />
+              <input style="width: 180px;" type="text" name="system.abilities.ability1.name" value="{{actor.system.abilities.ability1.name}}" placeholder="ability name" />
+            </div>
+            <div class="abilityrank">
+              Tier - {{actor.system.abilities.ability1.value}} {{actor.system.abilities.ability1.next}} TU:<input style="width:30px;"type="number" name="system.abilities.ability1.tu" value="{{actor.system.abilities.ability1.tu}}"/> | CU:<input style="width:30px;"type="number" name="system.abilities.ability1.cu" value="{{actor.system.abilities.ability1.cu}}"/>
+            </div>
+            <div class="abilityname">
+              Type: <input style="width: 25%;" type="text" name="system.abilities.ability1.type" value="{{actor.system.abilities.ability1.type}}"/> | Cooldown:<input style="width: 25%;"  type="text" name="system.abilities.ability1.cooldown" value="{{actor.system.abilities.ability1.cooldown}}"/>
+            </div>
+            <div class="abilityrank">
+              Cost: <input style="width: 81%;" type="text" name="system.abilities.ability1.cost" value="{{actor.system.abilities.ability1.cost}}"/>
+            </div>
+            <div class="abilityrank">
+              Category: <input style="width: 70%;" type="text" name="system.abilities.ability1.category" value="{{actor.system.abilities.ability1.category}}"/>
+            </div>
+            <div style="height: 250px;width: 100%;">
+              {{editor effect1HTML target="system.effect1" button=true editable=editable engine="prosemirror"}}
+            </div>
+          </td>
+          <td>
+            <div class="abilityname">   
+              <input style="width: 60px;" type="text" name="system.abilities.ability6.stone" value="{{actor.system.abilities.ability6.stone}}" placeholder="stone" />
+              <input style="width: 180px;" type="text" name="system.abilities.ability6.name" value="{{actor.system.abilities.ability6.name}}" placeholder="ability name" />
+            </div>
+            <div class="abilityrank">
+              Tier - {{actor.system.abilities.ability6.value}} {{actor.system.abilities.ability6.next}} TU:<input style="width:30px;"type="number" name="system.abilities.ability6.tu" value="{{actor.system.abilities.ability6.tu}}"/> | CU:<input style="width:30px;"type="number" name="system.abilities.ability6.cu" value="{{actor.system.abilities.ability6.cu}}"/>
+            </div>
+            <div class="abilityname">
+              Type: <input style="width: 25%;" type="text" name="system.abilities.ability6.type" value="{{actor.system.abilities.ability6.type}}"/> | Cooldown:<input style="width: 25%;"  type="text" name="system.abilities.ability6.cooldown" value="{{actor.system.abilities.ability6.cooldown}}"/>
+            </div>
+            <div class="abilityrank">
+              Cost: <input style="width: 81%;" type="text" name="system.abilities.ability6.cost" value="{{actor.system.abilities.ability6.cost}}"/>
+            </div>
+            <div class="abilityrank">
+              Category: <input style="width: 70%;" type="text" name="system.abilities.ability6.category" value="{{actor.system.abilities.ability6.category}}"/>
+            </div>
+            <div style="height: 250px;width: 100%;">
+              {{editor effect6HTML target="system.effect6" button=true editable=editable engine="prosemirror"}}
+            </div>
+          </td>
+          <td>
+            <div class="abilityname">   
+              <input style="width: 60px;" type="text" name="system.abilities.ability11.stone" value="{{actor.system.abilities.ability11.stone}}" placeholder="stone" />
+              <input style="width: 180px;" type="text" name="system.abilities.ability11.name" value="{{actor.system.abilities.ability11.name}}" placeholder="ability name" />
+            </div>
+            <div class="abilityrank">
+              Tier - {{actor.system.abilities.ability11.value}} {{actor.system.abilities.ability11.next}} TU:<input style="width:30px;"type="number" name="system.abilities.ability11.tu" value="{{actor.system.abilities.ability11.tu}}"/> | CU:<input style="width:30px;"type="number" name="system.abilities.ability11.cu" value="{{actor.system.abilities.ability11.cu}}"/>
+            </div>
+            <div class="abilityname">
+              Type: <input style="width: 25%;" type="text" name="system.abilities.ability11.type" value="{{actor.system.abilities.ability11.type}}"/> | Cooldown:<input style="width: 25%;"  type="text" name="system.abilities.ability11.cooldown" value="{{actor.system.abilities.ability11.cooldown}}"/>
+            </div>
+            <div class="abilityrank">
+              Cost: <input style="width: 81%;" type="text" name="system.abilities.ability11.cost" value="{{actor.system.abilities.ability11.cost}}"/>
+            </div>
+            <div class="abilityrank">
+              Category: <input style="width: 70%;" type="text" name="system.abilities.ability11.category" value="{{actor.system.abilities.ability11.category}}"/>
+            </div>
+            <div style="height: 250px;width: 100%;">
+              {{editor effect11HTML target="system.effect11" button=true editable=editable engine="prosemirror"}}
+            </div>
+          </td>
+          <td>
+            <div class="abilityname">   
+              <input style="width: 60px;" type="text" name="system.abilities.ability16.stone" value="{{actor.system.abilities.ability16.stone}}" placeholder="stone" />
+              <input style="width: 180px;" type="text" name="system.abilities.ability16.name" value="{{actor.system.abilities.ability16.name}}" placeholder="ability name" />
+            </div>
+            <div class="abilityrank">
+              Tier - {{actor.system.abilities.ability16.value}} {{actor.system.abilities.ability16.next}} TU:<input style="width:30px;"type="number" name="system.abilities.ability16.tu" value="{{actor.system.abilities.ability16.tu}}"/> | CU:<input style="width:30px;"type="number" name="system.abilities.ability16.cu" value="{{actor.system.abilities.ability16.cu}}"/>
+            </div>
+            <div class="abilityname">
+              Type: <input style="width: 25%;" type="text" name="system.abilities.ability16.type" value="{{actor.system.abilities.ability16.type}}"/> | Cooldown:<input style="width: 25%;"  type="text" name="system.abilities.ability16.cooldown" value="{{actor.system.abilities.ability16.cooldown}}"/>
+            </div>
+            <div class="abilityrank">
+              Cost: <input style="width: 81%;" type="text" name="system.abilities.ability16.cost" value="{{actor.system.abilities.ability16.cost}}"/>
+            </div>
+            <div class="abilityrank">
+              Category: <input style="width: 70%;" type="text" name="system.abilities.ability16.category" value="{{actor.system.abilities.ability16.category}}"/>
+            </div>
+            <div style="height: 250px;width: 100%;">
+              {{editor effect16HTML target="system.effect16" button=true editable=editable engine="prosemirror"}}
+            </div>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <div class="abilityname">   
+              <input style="width: 60px;" type="text" name="system.abilities.ability2.stone" value="{{actor.system.abilities.ability2.stone}}" placeholder="stone" />
+              <input style="width: 180px;" type="text" name="system.abilities.ability2.name" value="{{actor.system.abilities.ability2.name}}" placeholder="ability name" />
+            </div>
+            <div class="abilityrank">
+              Tier - {{actor.system.abilities.ability2.value}} {{actor.system.abilities.ability2.next}} TU:<input style="width:30px;"type="number" name="system.abilities.ability2.tu" value="{{actor.system.abilities.ability2.tu}}"/> | CU:<input style="width:30px;"type="number" name="system.abilities.ability2.cu" value="{{actor.system.abilities.ability2.cu}}"/>
+            </div>
+            <div class="abilityname">
+              Type: <input style="width: 25%;" type="text" name="system.abilities.ability2.type" value="{{actor.system.abilities.ability2.type}}"/> | Cooldown:<input style="width: 25%;"  type="text" name="system.abilities.ability2.cooldown" value="{{actor.system.abilities.ability2.cooldown}}"/>
+            </div>
+            <div class="abilityrank">
+              Cost: <input style="width: 81%;" type="text" name="system.abilities.ability2.cost" value="{{actor.system.abilities.ability2.cost}}"/>
+            </div>
+            <div class="abilityrank">
+              Category: <input style="width: 70%;" type="text" name="system.abilities.ability2.category" value="{{actor.system.abilities.ability2.category}}"/>
+            </div>
+            <div style="height: 250px;width: 100%;">
+              {{editor effect2HTML target="system.effect2" button=true editable=editable engine="prosemirror"}}
+            </div>
+          </td>
+          <td>
+            <div class="abilityname">   
+              <input style="width: 60px;" type="text" name="system.abilities.ability7.stone" value="{{actor.system.abilities.ability7.stone}}" placeholder="stone" />
+              <input style="width: 180px;" type="text" name="system.abilities.ability7.name" value="{{actor.system.abilities.ability7.name}}" placeholder="ability name" />
+            </div>
+            <div class="abilityrank">
+              Tier - {{actor.system.abilities.ability7.value}} {{actor.system.abilities.ability7.next}} TU:<input style="width:30px;"type="number" name="system.abilities.ability7.tu" value="{{actor.system.abilities.ability7.tu}}"/> | CU:<input style="width:30px;"type="number" name="system.abilities.ability7.cu" value="{{actor.system.abilities.ability7.cu}}"/>
+            </div>
+            <div class="abilityname">
+              Type: <input style="width: 25%;" type="text" name="system.abilities.ability7.type" value="{{actor.system.abilities.ability7.type}}"/> | Cooldown:<input style="width: 25%;"  type="text" name="system.abilities.ability7.cooldown" value="{{actor.system.abilities.ability7.cooldown}}"/>
+            </div>
+            <div class="abilityrank">
+              Cost: <input style="width: 81%;" type="text" name="system.abilities.ability7.cost" value="{{actor.system.abilities.ability7.cost}}"/>
+            </div>
+            <div class="abilityrank">
+              Category: <input style="width: 70%;" type="text" name="system.abilities.ability7.category" value="{{actor.system.abilities.ability7.category}}"/>
+            </div>
+            <div style="height: 250px;width: 100%;">
+              {{editor effect7HTML target="system.effect7" button=true editable=editable engine="prosemirror"}}
+            </div>
+          </td>
+          <td>
+            <div class="abilityname">   
+              <input style="width: 60px;" type="text" name="system.abilities.ability12.stone" value="{{actor.system.abilities.ability12.stone}}" placeholder="stone" />
+              <input style="width: 180px;" type="text" name="system.abilities.ability12.name" value="{{actor.system.abilities.ability12.name}}" placeholder="ability name" />
+            </div>
+            <div class="abilityrank">
+              Tier - {{actor.system.abilities.ability12.value}} {{actor.system.abilities.ability12.next}} TU:<input style="width:30px;"type="number" name="system.abilities.ability12.tu" value="{{actor.system.abilities.ability12.tu}}"/> | CU:<input style="width:30px;"type="number" name="system.abilities.ability12.cu" value="{{actor.system.abilities.ability12.cu}}"/>
+            </div>
+            <div class="abilityname">
+              Type: <input style="width: 25%;" type="text" name="system.abilities.ability12.type" value="{{actor.system.abilities.ability12.type}}"/> | Cooldown:<input style="width: 25%;"  type="text" name="system.abilities.ability12.cooldown" value="{{actor.system.abilities.ability12.cooldown}}"/>
+            </div>
+            <div class="abilityrank">
+              Cost: <input style="width: 81%;" type="text" name="system.abilities.ability12.cost" value="{{actor.system.abilities.ability12.cost}}"/>
+            </div>
+            <div class="abilityrank">
+              Category: <input style="width: 70%;" type="text" name="system.abilities.ability12.category" value="{{actor.system.abilities.ability12.category}}"/>
+            </div>
+            <div style="height: 250px;width: 100%;">
+              {{editor effect12HTML target="system.effect12" button=true editable=editable engine="prosemirror"}}
+            </div>
+          </td>
+          <td>
+            <div class="abilityname">   
+              <input style="width: 60px;" type="text" name="system.abilities.ability17.stone" value="{{actor.system.abilities.ability17.stone}}" placeholder="stone" />
+              <input style="width: 180px;" type="text" name="system.abilities.ability17.name" value="{{actor.system.abilities.ability17.name}}" placeholder="ability name" />
+            </div>
+            <div class="abilityrank">
+              Tier - {{actor.system.abilities.ability17.value}} {{actor.system.abilities.ability17.next}} TU:<input style="width:30px;"type="number" name="system.abilities.ability17.tu" value="{{actor.system.abilities.ability17.tu}}"/> | CU:<input style="width:30px;"type="number" name="system.abilities.ability17.cu" value="{{actor.system.abilities.ability17.cu}}"/>
+            </div>
+            <div class="abilityname">
+              Type: <input style="width: 25%;" type="text" name="system.abilities.ability17.type" value="{{actor.system.abilities.ability17.type}}"/> | Cooldown:<input style="width: 25%;"  type="text" name="system.abilities.ability17.cooldown" value="{{actor.system.abilities.ability17.cooldown}}"/>
+            </div>
+            <div class="abilityrank">
+              Cost: <input style="width: 81%;" type="text" name="system.abilities.ability17.cost" value="{{actor.system.abilities.ability17.cost}}"/>
+            </div>
+            <div class="abilityrank">
+              Category: <input style="width: 70%;" type="text" name="system.abilities.ability17.category" value="{{actor.system.abilities.ability17.category}}"/>
+            </div>
+            <div style="height: 250px;width: 100%;">
+              {{editor effect17HTML target="system.effect17" button=true editable=editable engine="prosemirror"}}
+            </div>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <div class="abilityname">   
+              <input style="width: 60px;" type="text" name="system.abilities.ability3.stone" value="{{actor.system.abilities.ability3.stone}}" placeholder="stone" />
+              <input style="width: 180px;" type="text" name="system.abilities.ability3.name" value="{{actor.system.abilities.ability3.name}}" placeholder="ability name" />
+            </div>
+            <div class="abilityrank">
+              Tier - {{actor.system.abilities.ability3.value}} {{actor.system.abilities.ability3.next}} TU:<input style="width:30px;"type="number" name="system.abilities.ability3.tu" value="{{actor.system.abilities.ability3.tu}}"/> | CU:<input style="width:30px;"type="number" name="system.abilities.ability3.cu" value="{{actor.system.abilities.ability3.cu}}"/>
+            </div>
+            <div class="abilityname">
+              Type: <input style="width: 25%;" type="text" name="system.abilities.ability3.type" value="{{actor.system.abilities.ability3.type}}"/> | Cooldown:<input style="width: 25%;"  type="text" name="system.abilities.ability3.cooldown" value="{{actor.system.abilities.ability3.cooldown}}"/>
+            </div>
+            <div class="abilityrank">
+              Cost: <input style="width: 81%;" type="text" name="system.abilities.ability3.cost" value="{{actor.system.abilities.ability3.cost}}"/>
+            </div>
+            <div class="abilityrank">
+              Category: <input style="width: 70%;" type="text" name="system.abilities.ability3.category" value="{{actor.system.abilities.ability3.category}}"/>
+            </div>
+            <div style="height: 250px;width: 100%;">
+              {{editor effect3HTML target="system.effect3" button=true editable=editable engine="prosemirror"}}
+            </div>
+          </td>
+          <td>
+            <div class="abilityname">   
+              <input style="width: 60px;" type="text" name="system.abilities.ability8.stone" value="{{actor.system.abilities.ability8.stone}}" placeholder="stone" />
+              <input style="width: 180px;" type="text" name="system.abilities.ability8.name" value="{{actor.system.abilities.ability8.name}}" placeholder="ability name" />
+            </div>
+            <div class="abilityrank">
+              Tier - {{actor.system.abilities.ability8.value}} {{actor.system.abilities.ability8.next}} TU:<input style="width:30px;"type="number" name="system.abilities.ability8.tu" value="{{actor.system.abilities.ability8.tu}}"/> | CU:<input style="width:30px;"type="number" name="system.abilities.ability8.cu" value="{{actor.system.abilities.ability8.cu}}"/>
+            </div>
+            <div class="abilityname">
+              Type: <input style="width: 25%;" type="text" name="system.abilities.ability8.type" value="{{actor.system.abilities.ability8.type}}"/> | Cooldown:<input style="width: 25%;"  type="text" name="system.abilities.ability8.cooldown" value="{{actor.system.abilities.ability8.cooldown}}"/>
+            </div>
+            <div class="abilityrank">
+              Cost: <input style="width: 81%;" type="text" name="system.abilities.ability8.cost" value="{{actor.system.abilities.ability8.cost}}"/>
+            </div>
+            <div class="abilityrank">
+              Category: <input style="width: 70%;" type="text" name="system.abilities.ability8.category" value="{{actor.system.abilities.ability8.category}}"/>
+            </div>
+            <div style="height: 250px;width: 100%;">
+              {{editor effect8HTML target="system.effect8" button=true editable=editable engine="prosemirror"}}
+            </div>
+          </td>
+          <td>
+            <div class="abilityname">   
+              <input style="width: 60px;" type="text" name="system.abilities.ability13.stone" value="{{actor.system.abilities.ability13.stone}}" placeholder="stone" />
+              <input style="width: 180px;" type="text" name="system.abilities.ability13.name" value="{{actor.system.abilities.ability13.name}}" placeholder="ability name" />
+            </div>
+            <div class="abilityrank">
+              Tier - {{actor.system.abilities.ability13.value}} {{actor.system.abilities.ability13.next}} TU:<input style="width:30px;"type="number" name="system.abilities.ability13.tu" value="{{actor.system.abilities.ability13.tu}}"/> | CU:<input style="width:30px;"type="number" name="system.abilities.ability13.cu" value="{{actor.system.abilities.ability13.cu}}"/>
+            </div>
+            <div class="abilityname">
+              Type: <input style="width: 25%;" type="text" name="system.abilities.ability13.type" value="{{actor.system.abilities.ability13.type}}"/> | Cooldown:<input style="width: 25%;"  type="text" name="system.abilities.ability13.cooldown" value="{{actor.system.abilities.ability13.cooldown}}"/>
+            </div>
+            <div class="abilityrank">
+              Cost: <input style="width: 81%;" type="text" name="system.abilities.ability13.cost" value="{{actor.system.abilities.ability13.cost}}"/>
+            </div>
+            <div class="abilityrank">
+              Category: <input style="width: 70%;" type="text" name="system.abilities.ability13.category" value="{{actor.system.abilities.ability13.category}}"/>
+            </div>
+            <div style="height: 250px;width: 100%;">
+              {{editor effect13HTML target="system.effect13" button=true editable=editable engine="prosemirror"}}
+            </div>
+          </td>
+          <td>
+            <div class="abilityname">   
+              <input style="width: 60px;" type="text" name="system.abilities.ability18.stone" value="{{actor.system.abilities.ability18.stone}}" placeholder="stone" />
+              <input style="width: 180px;" type="text" name="system.abilities.ability18.name" value="{{actor.system.abilities.ability18.name}}" placeholder="ability name" />
+            </div>
+            <div class="abilityrank">
+              Tier - {{actor.system.abilities.ability18.value}} {{actor.system.abilities.ability18.next}} TU:<input style="width:30px;"type="number" name="system.abilities.ability18.tu" value="{{actor.system.abilities.ability18.tu}}"/> | CU:<input style="width:30px;"type="number" name="system.abilities.ability18.cu" value="{{actor.system.abilities.ability18.cu}}"/>
+            </div>
+            <div class="abilityname">
+              Type: <input style="width: 25%;" type="text" name="system.abilities.ability18.type" value="{{actor.system.abilities.ability18.type}}"/> | Cooldown:<input style="width: 25%;"  type="text" name="system.abilities.ability18.cooldown" value="{{actor.system.abilities.ability18.cooldown}}"/>
+            </div>
+            <div class="abilityrank">
+              Cost: <input style="width: 81%;" type="text" name="system.abilities.ability18.cost" value="{{actor.system.abilities.ability18.cost}}"/>
+            </div>
+            <div class="abilityrank">
+              Category: <input style="width: 70%;" type="text" name="system.abilities.ability18.category" value="{{actor.system.abilities.ability18.category}}"/>
+            </div>
+            <div style="height: 250px;width: 100%;">
+              {{editor effect18HTML target="system.effect18" button=true editable=editable engine="prosemirror"}}
+            </div>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <div class="abilityname">   
+              <input style="width: 60px;" type="text" name="system.abilities.ability4.stone" value="{{actor.system.abilities.ability4.stone}}" placeholder="stone" />
+              <input style="width: 180px;" type="text" name="system.abilities.ability4.name" value="{{actor.system.abilities.ability4.name}}" placeholder="ability name" />
+            </div>
+            <div class="abilityrank">
+              Tier - {{actor.system.abilities.ability4.value}} {{actor.system.abilities.ability4.next}} TU:<input style="width:30px;"type="number" name="system.abilities.ability4.tu" value="{{actor.system.abilities.ability4.tu}}"/> | CU:<input style="width:30px;"type="number" name="system.abilities.ability4.cu" value="{{actor.system.abilities.ability4.cu}}"/>
+            </div>
+            <div class="abilityname">
+              Type: <input style="width: 25%;" type="text" name="system.abilities.ability4.type" value="{{actor.system.abilities.ability4.type}}"/> | Cooldown:<input style="width: 25%;"  type="text" name="system.abilities.ability4.cooldown" value="{{actor.system.abilities.ability4.cooldown}}"/>
+            </div>
+            <div class="abilityrank">
+              Cost: <input style="width: 81%;" type="text" name="system.abilities.ability4.cost" value="{{actor.system.abilities.ability4.cost}}"/>
+            </div>
+            <div class="abilityrank">
+              Category: <input style="width: 70%;" type="text" name="system.abilities.ability4.category" value="{{actor.system.abilities.ability4.category}}"/>
+            </div>
+            <div style="height: 250px;width: 100%;">
+              {{editor effect4HTML target="system.effect4" button=true editable=editable engine="prosemirror"}}
+            </div>
+          </td>
+          <td>
+            <div class="abilityname">   
+              <input style="width: 60px;" type="text" name="system.abilities.ability9.stone" value="{{actor.system.abilities.ability9.stone}}" placeholder="stone" />
+              <input style="width: 180px;" type="text" name="system.abilities.ability9.name" value="{{actor.system.abilities.ability9.name}}" placeholder="ability name" />
+            </div>
+            <div class="abilityrank">
+              Tier - {{actor.system.abilities.ability9.value}} {{actor.system.abilities.ability9.next}} TU:<input style="width:30px;"type="number" name="system.abilities.ability9.tu" value="{{actor.system.abilities.ability9.tu}}"/> | CU:<input style="width:30px;"type="number" name="system.abilities.ability9.cu" value="{{actor.system.abilities.ability9.cu}}"/>
+            </div>
+            <div class="abilityname">
+              Type: <input style="width: 25%;" type="text" name="system.abilities.ability9.type" value="{{actor.system.abilities.ability9.type}}"/> | Cooldown:<input style="width: 25%;"  type="text" name="system.abilities.ability9.cooldown" value="{{actor.system.abilities.ability9.cooldown}}"/>
+            </div>
+            <div class="abilityrank">
+              Cost: <input style="width: 81%;" type="text" name="system.abilities.ability9.cost" value="{{actor.system.abilities.ability9.cost}}"/>
+            </div>
+            <div class="abilityrank">
+              Category: <input style="width: 70%;" type="text" name="system.abilities.ability9.category" value="{{actor.system.abilities.ability9.category}}"/>
+            </div>
+            <div style="height: 250px;width: 100%;">
+              {{editor effect9HTML target="system.effect9" button=true editable=editable engine="prosemirror"}}
+            </div>
+          </td>
+          <td>
+            <div class="abilityname">   
+              <input style="width: 60px;" type="text" name="system.abilities.ability14.stone" value="{{actor.system.abilities.ability14.stone}}" placeholder="stone" />
+              <input style="width: 180px;" type="text" name="system.abilities.ability14.name" value="{{actor.system.abilities.ability14.name}}" placeholder="ability name" />
+            </div>
+            <div class="abilityrank">
+              Tier - {{actor.system.abilities.ability14.value}} {{actor.system.abilities.ability14.next}} TU:<input style="width:30px;"type="number" name="system.abilities.ability14.tu" value="{{actor.system.abilities.ability14.tu}}"/> | CU:<input style="width:30px;"type="number" name="system.abilities.ability14.cu" value="{{actor.system.abilities.ability14.cu}}"/>
+            </div>
+            <div class="abilityname">
+              Type: <input style="width: 25%;" type="text" name="system.abilities.ability14.type" value="{{actor.system.abilities.ability14.type}}"/> | Cooldown:<input style="width: 25%;"  type="text" name="system.abilities.ability14.cooldown" value="{{actor.system.abilities.ability14.cooldown}}"/>
+            </div>
+            <div class="abilityrank">
+              Cost: <input style="width: 81%;" type="text" name="system.abilities.ability14.cost" value="{{actor.system.abilities.ability14.cost}}"/>
+            </div>
+            <div class="abilityrank">
+              Category: <input style="width: 70%;" type="text" name="system.abilities.ability14.category" value="{{actor.system.abilities.ability14.category}}"/>
+            </div>
+            <div style="height: 250px;width: 100%;">
+              {{editor effect14HTML target="system.effect14" button=true editable=editable engine="prosemirror"}}
+            </div>
+          </td>
+          <td>
+            <div class="abilityname">   
+              <input style="width: 60px;" type="text" name="system.abilities.ability19.stone" value="{{actor.system.abilities.ability19.stone}}" placeholder="stone" />
+              <input style="width: 180px;" type="text" name="system.abilities.ability19.name" value="{{actor.system.abilities.ability19.name}}" placeholder="ability name" />
+            </div>
+            <div class="abilityrank">
+              Tier - {{actor.system.abilities.ability19.value}} {{actor.system.abilities.ability19.next}} TU:<input style="width:30px;"type="number" name="system.abilities.ability19.tu" value="{{actor.system.abilities.ability19.tu}}"/> | CU:<input style="width:30px;"type="number" name="system.abilities.ability19.cu" value="{{actor.system.abilities.ability19.cu}}"/>
+            </div>
+            <div class="abilityname">
+              Type: <input style="width: 25%;" type="text" name="system.abilities.ability19.type" value="{{actor.system.abilities.ability19.type}}"/> | Cooldown:<input style="width: 25%;"  type="text" name="system.abilities.ability19.cooldown" value="{{actor.system.abilities.ability19.cooldown}}"/>
+            </div>
+            <div class="abilityrank">
+              Cost: <input style="width: 81%;" type="text" name="system.abilities.ability19.cost" value="{{actor.system.abilities.ability19.cost}}"/>
+            </div>
+            <div class="abilityrank">
+              Category: <input style="width: 70%;" type="text" name="system.abilities.ability19.category" value="{{actor.system.abilities.ability19.category}}"/>
+            </div>
+            <div style="height: 250px;width: 100%;">
+              {{editor effect19HTML target="system.effect19" button=true editable=editable engine="prosemirror"}}
+            </div>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <div class="abilityname">   
+              <input style="width: 60px;" type="text" name="system.abilities.ability5.stone" value="{{actor.system.abilities.ability5.stone}}" placeholder="stone" />
+              <input style="width: 180px;" type="text" name="system.abilities.ability5.name" value="{{actor.system.abilities.ability5.name}}" placeholder="ability name" />
+            </div>
+            <div class="abilityrank">
+              Tier - {{actor.system.abilities.ability5.value}} {{actor.system.abilities.ability5.next}} TU:<input style="width:30px;"type="number" name="system.abilities.ability5.tu" value="{{actor.system.abilities.ability5.tu}}"/> | CU:<input style="width:30px;"type="number" name="system.abilities.ability5.cu" value="{{actor.system.abilities.ability5.cu}}"/>
+            </div>
+            <div class="abilityname">
+              Type: <input style="width: 25%;" type="text" name="system.abilities.ability5.type" value="{{actor.system.abilities.ability5.type}}"/> | Cooldown:<input style="width: 25%;"  type="text" name="system.abilities.ability5.cooldown" value="{{actor.system.abilities.ability5.cooldown}}"/>
+            </div>
+            <div class="abilityrank">
+              Cost: <input style="width: 81%;" type="text" name="system.abilities.ability5.cost" value="{{actor.system.abilities.ability5.cost}}"/>
+            </div>
+            <div class="abilityrank">
+              Category: <input style="width: 70%;" type="text" name="system.abilities.ability5.category" value="{{actor.system.abilities.ability5.category}}"/>
+            </div>
+            <div style="height: 250px;width: 100%;">
+              {{editor effect5HTML target="system.effect5" button=true editable=editable engine="prosemirror"}}
+            </div>
+          </td>
+          <td>
+            <div class="abilityname">   
+              <input style="width: 60px;" type="text" name="system.abilities.ability10.stone" value="{{actor.system.abilities.ability10.stone}}" placeholder="stone" />
+              <input style="width: 180px;" type="text" name="system.abilities.ability10.name" value="{{actor.system.abilities.ability10.name}}" placeholder="ability name" />
+            </div>
+            <div class="abilityrank">
+              Tier - {{actor.system.abilities.ability10.value}} {{actor.system.abilities.ability10.next}} TU:<input style="width:30px;"type="number" name="system.abilities.ability10.tu" value="{{actor.system.abilities.ability10.tu}}"/> | CU:<input style="width:30px;"type="number" name="system.abilities.ability10.cu" value="{{actor.system.abilities.ability10.cu}}"/>
+            </div>
+            <div class="abilityname">
+              Type: <input style="width: 25%;" type="text" name="system.abilities.ability10.type" value="{{actor.system.abilities.ability10.type}}"/> | Cooldown:<input style="width: 25%;"  type="text" name="system.abilities.ability10.cooldown" value="{{actor.system.abilities.ability10.cooldown}}"/>
+            </div>
+            <div class="abilityrank">
+              Cost: <input style="width: 81%;" type="text" name="system.abilities.ability10.cost" value="{{actor.system.abilities.ability10.cost}}"/>
+            </div>
+            <div class="abilityrank">
+              Category: <input style="width: 70%;" type="text" name="system.abilities.ability10.category" value="{{actor.system.abilities.ability10.category}}"/>
+            </div>
+            <div style="height: 250px;width: 100%;">
+              {{editor effect10HTML target="system.effect10" button=true editable=editable engine="prosemirror"}}
+            </div>
+          </td>
+          <td>
+            <div class="abilityname">   
+              <input style="width: 60px;" type="text" name="system.abilities.ability15.stone" value="{{actor.system.abilities.ability15.stone}}" placeholder="stone" />
+              <input style="width: 180px;" type="text" name="system.abilities.ability15.name" value="{{actor.system.abilities.ability15.name}}" placeholder="ability name" />
+            </div>
+            <div class="abilityrank">
+              Tier - {{actor.system.abilities.ability15.value}} {{actor.system.abilities.ability15.next}} TU:<input style="width:30px;"type="number" name="system.abilities.ability15.tu" value="{{actor.system.abilities.ability15.tu}}"/> | CU:<input style="width:30px;"type="number" name="system.abilities.ability15.cu" value="{{actor.system.abilities.ability15.cu}}"/>
+            </div>
+            <div class="abilityname">
+              Type: <input style="width: 25%;" type="text" name="system.abilities.ability15.type" value="{{actor.system.abilities.ability15.type}}"/> | Cooldown:<input style="width: 25%;"  type="text" name="system.abilities.ability15.cooldown" value="{{actor.system.abilities.ability15.cooldown}}"/>
+            </div>
+            <div class="abilityrank">
+              Cost: <input style="width: 81%;" type="text" name="system.abilities.ability15.cost" value="{{actor.system.abilities.ability15.cost}}"/>
+            </div>
+            <div class="abilityrank">
+              Category: <input style="width: 70%;" type="text" name="system.abilities.ability15.category" value="{{actor.system.abilities.ability15.category}}"/>
+            </div>
+            <div style="height: 250px;width: 100%;">
+              {{editor effect15HTML target="system.effect15" button=true editable=editable engine="prosemirror"}}
+            </div>
+          </td>
+          <td>
+            <div class="abilityname">   
+              <input style="width: 60px;" type="text" name="system.abilities.ability20.stone" value="{{actor.system.abilities.ability20.stone}}" placeholder="stone" />
+              <input style="width: 180px;" type="text" name="system.abilities.ability20.name" value="{{actor.system.abilities.ability20.name}}" placeholder="ability name" />
+            </div>
+            <div class="abilityrank">
+              Tier - {{actor.system.abilities.ability20.value}} {{actor.system.abilities.ability20.next}} TU:<input style="width:30px;"type="number" name="system.abilities.ability20.tu" value="{{actor.system.abilities.ability20.tu}}"/> | CU:<input style="width:30px;"type="number" name="system.abilities.ability20.cu" value="{{actor.system.abilities.ability20.cu}}"/>
+            </div>
+            <div class="abilityname">
+              Type: <input style="width: 25%;" type="text" name="system.abilities.ability20.type" value="{{actor.system.abilities.ability20.type}}"/> | Cooldown:<input style="width: 25%;"  type="text" name="system.abilities.ability20.cooldown" value="{{actor.system.abilities.ability20.cooldown}}"/>
+            </div>
+            <div class="abilityrank">
+              Cost: <input style="width: 81%;" type="text" name="system.abilities.ability20.cost" value="{{actor.system.abilities.ability20.cost}}"/>
+            </div>
+            <div class="abilityrank">
+              Category: <input style="width: 70%;" type="text" name="system.abilities.ability20.category" value="{{actor.system.abilities.ability20.category}}"/>
+            </div>
+            <div style="height: 250px;width: 100%;">
+              {{editor effect20HTML target="system.effect20" button=true editable=editable engine="prosemirror"}}
+            </div>
+          </td>
+        </tr>
+      </table>
+    </div>
+    {{!-- Biography Tab --}}
+   <div class="tab description" data-group="primary" data-tab="description">
+      <table>
+        <tr>
+          <th>Race & Background</th>
+        </tr>
+        <tr>
+          <td style="height: 250px;width: 100%;">
+            {{editor raceHTML target="system.race" button=true editable=editable engine="prosemirror"}}
+          </td>
+        </tr>
+        <tr>
+          <th>Skills</th>
+        </tr>
+        <tr>
+          <td>
+            <table>
+              <tr>
+                <th><strong>Aura Control: </strong>
+                  <input style="width: 40px;" type="number" name="system.skills.auracontrol" value="{{systemData.skills.auracontrol}}"/>
+                </th>
+                <th><strong>Perception: </strong>
+                  <input style="width: 40px;" type="number" name="system.skills.perception" value="{{systemData.skills.perception}}"/>
+                </th>
+                <th><strong>Acrobatics: </strong>
+                  <input style="width: 40px;" type="number" name="system.skills.acrobatics" value="{{systemData.skills.acrobatics}}"/>
+                </th>
+              </tr>
+            </table>
+          </td>
+        </tr>
+        <tr>
+          <th>Skill Milestones & Knoweleges</th>
+        </tr>
+        <tr>
+          <td style="height: 500px;">
+            {{editor knowelegeHTML target="system.knowelege" button=true editable=editable engine="prosemirror"}}
+          </td>
+        </tr>
+      </table>
+    </div>
+ 
+    {{!-- Attributes Tab --}}
+    <div class="tab modifers" data-group="primary" data-tab="modifers">
+    </div>
+    {{!-- Owned Items Tab --}}
+    <div class="tab items" data-group="primary" data-tab="items">
+    </div>
+</section>
 </form>

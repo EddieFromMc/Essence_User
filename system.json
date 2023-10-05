@@ -2,7 +2,7 @@
     "id": "Essence_User",
     "title": "Essence_User",
     "description": "Work in Progress",
-    "version": "0.0.4",
+    "version": "0.0.5",
     "compatibility": {
       "minimum": "10",
       "verified": "11",
@@ -17,7 +17,7 @@
       "module/Essence_User.js"
     ],
     "styles": [
-      
+      "styles/Base.css"
     ],
     "packs": [
       
